@@ -1,29 +1,26 @@
-/*#include<iostream>
+#include<iostream>
 #include<string>
 using namespace std; 
 int main()
 {
-    string* ptr = new string[5];
+   
     int n;
     cout<<"Enter the number of elements:";
     cin>>n;
-    for(int i=0;i<n;i++)
-    {
+
+     int* ptr = new int[n];
+     for(int i=0;i<n;i++)
+     {
+        cout<<"Enter the element "<<i+1<<": ";
         cin>>ptr[i];
-    }
-}*/
+     }
 
-    #include <iostream>
-using namespace std;
+     cout<<"The elements are: "<<endl;
+     for(int i=0;i<n;i++)
+     {
+        cout<<ptr[i]<<endl; 
 
-int main() {
-    int age;
-    string name;
+}
 
-    cout << "Enter your age: ";
-    cin >> age;   // You type: 23 [Enter]
-    cout << "Enter your name: ";
-    getline(cin, name);  // <-- Problem here!
-
-    cout << "Your name is " << name << endl;
+   delete[] ptr;
 }
