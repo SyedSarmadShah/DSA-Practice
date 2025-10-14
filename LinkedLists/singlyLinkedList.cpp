@@ -19,6 +19,19 @@ void insertAtHead(Node*& head, int data) {
     head = temp;
 }
 
+void insertAtTail(Node*& head, int data) {
+    Node* temp = new Node(data);
+    if (head == NULL) {
+        head = temp;
+        return;
+    }
+    Node* current = head;
+    while (current -> next != NULL) {
+        current = current -> next;
+    }
+    current -> next = temp;
+}
+
 int main()
 {
     Node* head = NULL;
