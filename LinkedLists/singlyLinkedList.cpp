@@ -6,8 +6,8 @@ class Node{
     int data;
     Node* next;
 
-    Node(){
-    this -> data = 0;
+    Node(int data){
+    this -> data = data;
     this -> next = NULL;
 }
 
@@ -19,32 +19,31 @@ void insertAtHead(Node*& head, int data) {
     head = temp;
 }
 
-void insertAtTail(Node*& head, int data) {
+void insertAtTail(Node*& tail, int data) {
     Node* temp = new Node(data);
-    if (head == NULL) {
-        head = temp;
-        return;
-    }
-    Node* current = head;
-    while (current -> next != NULL) {
-        current = current -> next;
-    }
-    current -> next = temp;
+    tail -> next = temp;
+    tail = tail -> next;
 }
 
-int main()
-{
-    Node* head = NULL;
-    insertAtHead(head, 10);
-    insertAtHead(head, 20);
-    insertAtHead(head, 30);
-
-    Node* current = head;
-    while (current != NULL) {
-        cout << current -> data << " ";
-        current = current -> next;
+void print(Node* &head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << temp -> data << " ";
+        temp = temp -> next;
     }
     cout << endl;
+}
+int main()
+{
+    Node* node1 = new Node(10);
+    Node* head = node1;
+    print(head);
+    Node* tail = node1;
+
+    insertAtHead(head, 12);
+    print(head);
+    
+
 
     return 0;
 }
